@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMK Budi Bakti Ciwidey</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'blue-primary': '#00BFFF',
+            'blue-light':   '#7DD3FC',
+            'blue-dark':    '#0090CC',
+            'blue-deeper':  '#0066AA',
+            'gray-bfc':     '#BFC5CC',
+            'text-dark':    '#0A1628',
+            'text-mid':     '#334155',
+            'text-light':   '#64748B',
+            'bg-light':     '#F0F8FF',
+            'bg-section':   '#EBF5FF',
+            'border-blue':  '#D1EAF8',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          boxShadow: {
+            'blue-sm':  '0 4px 15px rgba(0,191,255,0.15)',
+            'blue-md':  '0 8px 25px rgba(0,102,170,0.2)',
+            'blue-lg':  '0 12px 35px rgba(0,191,255,0.15)',
+            'blue-xl':  '0 16px 40px rgba(0,191,255,0.15)',
+            'blue-2xl': '0 8px 40px rgba(0,191,255,0.15)',
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Minimal custom CSS — only what Tailwind can't do via utility classes */
+
+    /* Hero background gradient */
+    .hero-bg {
+      background: linear-gradient(135deg, #020B1A 0%, #051730 40%, #0A2545 70%, #0D3060 100%);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: 30%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,191,255,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: rgba(0,191,255,0.3);
+    }
+
+    /* CTA gradient */
+    .cta-bg {
+      background: linear-gradient(135deg, #0066AA 0%, #00BFFF 60%, #7DD3FC 100%);
+    }
+
+    /* Problem right card gradient overlay circle */
+    .problem-right-card::before {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    /* Hero image drop shadow */
+    .hero-img-glow {
+      filter: drop-shadow(0 0 40px rgba(0,191,255,0.3));
+    }
+
+    /* Btn arrow pseudo */
+    .btn-arrow::after { content: ' →'; }
+
+    /* FAQ open state */
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-item.open { border-color: #00BFFF; }
+    .faq-item .faq-a { display: none; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* Join flow connector line */
+    .join-flow::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 12%; right: 12%;
+      height: 2px;
+      background: linear-gradient(to right, #00BFFF, #7DD3FC);
+      z-index: 0;
+    }
+
+    /* Scroll smooth already via html class */
+  </style>
+</head>
+
+<body class="bg-white text-text-dark overflow-x-hidden leading-relaxed font-sans">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white sticky top-0 z-50 shadow-[0_2px_20px_rgba(0,191,255,0.1)] border-b-2 border-border-blue">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="flex items-center justify-between py-4 gap-5">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 no-underline shrink-0">
+          <div class="w-13 h-13 rounded-xl overflow-hidden shrink-0" style="width:52px;height:52px;">
+            <img src="HD.png" alt="Logo BBC" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col leading-tight">
+            <strong class="text-[13px] font-bold text-text-dark">SMK BUDI BAKTI CIWIDEY</strong>
+            <span class="text-[11px] text-text-light font-normal">Sekolah Siap Kerja &amp; Berkarya</span>
+          </div>
+        </a>
+
+        <!-- Nav desktop -->
+        <nav class="hidden md:flex items-center gap-1">
+          <a href="#" class="text-text-mid no-underline px-3.5 py-2 rounded-lg text-sm font-medium transition-all hover:text-blue-primary hover:bg-bg-light">Beranda</a>
+          <a href="#program" class="text-text-mid no-underline px-3.5 py-2 rounded-lg text-sm font-medium transition-all hover:text-blue-primary hover:bg-bg-light">Program</a>
+          <a href="#" class="text-text-mid no-underline px-3.5 py-2 rounded-lg text-sm font-medium transition-all hover:text-blue-primary hover:bg-bg-light">Prestasi</a>
+          <a href="#" class="text-text-mid no-underline px-3.5 py-2 rounded-lg text-sm font-medium transition-all hover:text-blue-primary hover:bg-bg-light">Tentang</a>
+          <a href="#" class="text-text-mid no-underline px-3.5 py-2 rounded-lg text-sm font-medium transition-all hover:text-blue-primary hover:bg-bg-light">Kontak</a>
+        </nav>
+
+        <!-- CTA btn -->
+        <a href="#" class="inline-flex items-center gap-2 px-[22px] py-[11px] rounded-xl font-semibold text-sm text-white bg-blue-primary shadow-blue-sm transition-all hover:bg-blue-dark hover:-translate-y-0.5 hover:shadow-blue-md">
+          Daftar Sekarang
+        </a>
+
+        <!-- Hamburger -->
+        <button onclick="toggleMenu()" class="md:hidden flex flex-col gap-[5px] cursor-pointer p-[5px]">
+          <span class="w-6 h-0.5 bg-text-dark rounded-sm transition-all"></span>
+          <span class="w-6 h-0.5 bg-text-dark rounded-sm transition-all"></span>
+          <span class="w-6 h-0.5 bg-text-dark rounded-sm transition-all"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden bg-white border-t border-border-blue px-5 py-5">
+      <a href="#" class="block py-3 text-text-mid text-[15px] font-medium border-b border-border-blue no-underline">Beranda</a>
+      <a href="#program" class="block py-3 text-text-mid text-[15px] font-medium border-b border-border-blue no-underline">Program</a>
+      <a href="#" class="block py-3 text-text-mid text-[15px] font-medium border-b border-border-blue no-underline">Prestasi</a>
+      <a href="#" class="block py-3 text-text-mid text-[15px] font-medium border-b border-border-blue no-underline">Tentang</a>
+      <a href="#" class="block py-3 text-text-mid text-[15px] font-medium border-b border-border-blue no-underline">Kontak</a>
+      <a href="#" class="block text-center mt-4 px-3 py-3 rounded-xl font-semibold text-sm text-white bg-blue-primary no-underline">Daftar Sekarang</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-bg relative pt-[70px] overflow-hidden min-h-[600px]">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="flex items-center gap-0 min-h-[600px] max-[900px]:flex-col max-[900px]:items-center max-[900px]:min-h-auto">
+
+        <!-- Hero text -->
+        <div class="flex-[0_0_50%] pb-[60px] pt-5 relative z-[2] max-[900px]:flex-auto max-[900px]:pb-0 max-[900px]:text-center max-[900px]:w-full">
+          <h1 class="text-[56px] font-black leading-[1.12] text-white mb-5 tracking-tight max-[600px]:text-[36px]">
+            ASAH POTENSI,<br>
+            BERSAMA <span class="text-blue-primary">BBC</span><br>
+            SIAP HADAPI INDUSTRI
+          </h1>
+          <p class="text-white/80 text-[15px] leading-[1.8] mb-[30px] max-w-[480px] max-[900px]:max-w-full">
+            SMK Budi Bakti Ciwidey membantu siswa mengembangkan potensi, meningkatkan daya saing, dan mempersiapkan diri untuk siap menghadapi dunia industri modern.
+          </p>
+          <div class="flex gap-3.5 flex-wrap mb-6 max-[900px]:justify-center max-[600px]:flex-col">
+            <a href="#" class="btn-arrow inline-flex items-center gap-2 px-[22px] py-[11px] rounded-xl font-semibold text-sm text-white bg-blue-primary shadow-blue-sm transition-all hover:bg-blue-dark hover:-translate-y-0.5 max-[600px]:text-center max-[600px]:justify-center">
+              Mulai Pendaftaran
+            </a>
+            <a href="#program" class="inline-flex items-center gap-2 px-[22px] py-[11px] rounded-xl font-semibold text-sm text-white bg-transparent border-2 border-white/50 transition-all hover:border-blue-primary hover:text-blue-primary hover:bg-blue-primary/10 max-[600px]:text-center max-[600px]:justify-center">
+              Pelajari Jurusan
+            </a>
+          </div>
+          <div class="flex items-center gap-2 text-[13px] text-white/60 font-medium max-[900px]:justify-center">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#00BFFF" stroke-width="2" class="shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Pendaftaran Tahun Ajaran 2026/2027 Telah Dibuka
+          </div>
+        </div>
+
+        <!-- Hero image -->
+        <div class="flex-[0_0_50%] flex justify-end items-end relative h-[600px] overflow-visible max-[900px]:flex-auto max-[900px]:w-full max-[900px]:h-[350px] max-[900px]:justify-center">
+          <!-- Floating badges -->
+          <div class="hero-float-1 absolute top-[60px] right-[10px] z-[3] bg-white/95 backdrop-blur-[10px] rounded-xl px-4 py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.3)] flex items-center gap-2 text-xs font-semibold text-text-dark whitespace-nowrap max-[900px]:hidden">
+            <span class="w-2 h-2 rounded-full bg-green-500 shrink-0"></span> Akreditasi A – BAN-S/M
+          </div>
+          <div class="hero-float-2 absolute top-[190px] left-[10px] z-[3] bg-white/95 backdrop-blur-[10px] rounded-xl px-4 py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.3)] flex items-center gap-2 text-xs font-semibold text-text-dark whitespace-nowrap max-[900px]:hidden">
+            <span>🎓</span> 1000+ Alumni Berprestasi
+          </div>
+          <img src="q.jpeg" alt="Siswa BBC"
+            class="hero-img-glow h-full w-full object-contain object-bottom rounded-none relative z-[2]">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEM ===== -->
+  <section class="py-20 bg-white">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="grid grid-cols-2 gap-6 max-[900px]:grid-cols-1">
+
+        <!-- Left -->
+        <div class="bg-bg-light border-2 border-border-blue rounded-[20px] p-10">
+          <h2 class="text-xl font-extrabold text-text-dark mb-6 leading-[1.4]">MASIH BINGUNG MENENTUKAN SEKOLAH?</h2>
+          <ul class="list-none">
+            <li class="flex items-center gap-3 py-2.5 text-text-mid text-sm font-medium border-b border-border-blue">
+              <span class="w-[22px] h-[22px] bg-red-100 text-red-500 rounded-full flex items-center justify-center text-xs font-bold shrink-0">✕</span>
+              Jurusan belum sesuai minat
+            </li>
+            <li class="flex items-center gap-3 py-2.5 text-text-mid text-sm font-medium border-b border-border-blue">
+              <span class="w-[22px] h-[22px] bg-red-100 text-red-500 rounded-full flex items-center justify-center text-xs font-bold shrink-0">✕</span>
+              Kurangnya pengalaman praktik
+            </li>
+            <li class="flex items-center gap-3 py-2.5 text-text-mid text-sm font-medium border-b border-border-blue">
+              <span class="w-[22px] h-[22px] bg-red-100 text-red-500 rounded-full flex items-center justify-center text-xs font-bold shrink-0">✕</span>
+              Bingung menentukan masa depan
+            </li>
+            <li class="flex items-center gap-3 py-2.5 text-text-mid text-sm font-medium">
+              <span class="w-[22px] h-[22px] bg-red-100 text-red-500 rounded-full flex items-center justify-center text-xs font-bold shrink-0">✕</span>
+              Skill digital masih terbatas
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right -->
+        <div class="problem-right-card bg-blue-primary rounded-[20px] p-10 text-white relative overflow-hidden">
+          <h2 class="text-xl font-extrabold mb-4 leading-[1.4]">BBC HADIR SEBAGAI SOLUSI!</h2>
+          <p class="text-sm leading-[1.8] opacity-95 mb-6">
+            Kami menyediakan jurusan relevan dengan dunia kerja, guru berpengalaman, kegiatan praktik aktif, dan dukungan pengembangan keterampilan serta kreativitas siswa.
+          </p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="bg-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5">🎯 Relevan</span>
+            <span class="bg-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5">👨‍🏫 Berpengalaman</span>
+            <span class="bg-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5">⚙️ Praktik Aktif</span>
+            <span class="bg-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5">💡 Kreatif</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KENAPA BBC ===== -->
+  <section class="py-20 bg-bg-section">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="text-center mb-[50px]">
+        <h2 class="text-[36px] font-extrabold text-text-dark mb-2 max-[600px]:text-[28px]">
+          KENAPA MEMILIH <span class="text-blue-primary">BBC?</span>
+        </h2>
+        <div class="w-[50px] h-1 bg-blue-primary rounded-sm mx-auto mt-3"></div>
+      </div>
+      <div class="grid grid-cols-4 gap-5 max-[1024px]:grid-cols-2">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-7 text-center border border-[1.5px] border-border-blue transition-all duration-300 hover:-translate-y-1.5 hover:shadow-blue-lg hover:border-blue-primary">
+          <div class="w-[60px] h-[60px] bg-gradient-to-br from-blue-primary to-blue-light rounded-2xl flex items-center justify-center mx-auto mb-4 text-[26px]">💻</div>
+          <h3 class="text-[15px] font-bold text-text-dark mb-2">Skill Digital</h3>
+          <p class="text-[13px] text-text-light leading-relaxed">Menguasai teknologi dan pengembangan digital modern.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl p-7 text-center border border-[1.5px] border-border-blue transition-all duration-300 hover:-translate-y-1.5 hover:shadow-blue-lg hover:border-blue-primary">
+          <div class="w-[60px] h-[60px] bg-gradient-to-br from-blue-primary to-blue-light rounded-2xl flex items-center justify-center mx-auto mb-4 text-[26px]">🎨</div>
+          <h3 class="text-[15px] font-bold text-text-dark mb-2">Kreativitas Aktif</h3>
+          <p class="text-[13px] text-text-light leading-relaxed">Mengembangkan ide kreatif dan keterampilan desain.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-7 text-center border border-[1.5px] border-border-blue transition-all duration-300 hover:-translate-y-1.5 hover:shadow-blue-lg hover:border-blue-primary">
+          <div class="w-[60px] h-[60px] bg-gradient-to-br from-blue-primary to-blue-light rounded-2xl flex items-center justify-center mx-auto mb-4 text-[26px]">🏭</div>
+          <h3 class="text-[15px] font-bold text-text-dark mb-2">Praktik Industri</h3>
+          <p class="text-[13px] text-text-light leading-relaxed">Pembelajaran aktif berbasis praktik dan pengalaman nyata.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-white rounded-2xl p-7 text-center border border-[1.5px] border-border-blue transition-all duration-300 hover:-translate-y-1.5 hover:shadow-blue-lg hover:border-blue-primary">
+          <div class="w-[60px] h-[60px] bg-gradient-to-br from-blue-primary to-blue-light rounded-2xl flex items-center justify-center mx-auto mb-4 text-[26px]">🚀</div>
+          <h3 class="text-[15px] font-bold text-text-dark mb-2">Siap Dunia Kerja</h3>
+          <p class="text-[13px] text-text-light leading-relaxed">Mempersiapkan siswa lebih siap menghadapi dunia kerja.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAM KEAHLIAN ===== -->
+  <section class="py-20 bg-white" id="program">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="text-center mb-[50px]">
+        <h2 class="text-[36px] font-extrabold text-text-dark mb-2 max-[600px]:text-[28px]">PROGRAM KEAHLIAN</h2>
+        <div class="w-[50px] h-1 bg-blue-primary rounded-sm mx-auto mt-3"></div>
+      </div>
+      <div class="grid grid-cols-3 gap-6 max-[900px]:grid-cols-1">
+
+        <!-- RPL -->
+        <div class="rounded-[18px] overflow-hidden border border-[1.5px] border-border-blue bg-white transition-all duration-300 hover:-translate-y-1.5 hover:shadow-blue-xl hover:border-blue-primary group">
+          <div class="h-[180px] overflow-hidden relative">
+            <img src="rpl.jpeg" alt="RPL" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+            <div class="absolute bottom-3 left-3 bg-blue-primary text-white px-3 py-1.5 rounded-lg text-[13px] font-bold flex items-center gap-1.5">
+              <span class="text-lg">⌨️</span> RPL
+            </div>
+          </div>
+          <div class="p-[22px]">
+            <h3 class="text-base font-bold text-blue-primary mb-1">RPL</h3>
+            <div class="text-[13px] text-text-light font-medium mb-2.5">Rekayasa Perangkat Lunak</div>
+            <p class="text-[13px] text-text-mid leading-relaxed">Belajar coding, web development, dan teknologi digital.</p>
+          </div>
+        </div>
+
+        <!-- DKV -->
+        <div class="rounded-[18px] overflow-hidden border border-[1.5px] border-border-blue bg-white transition-all duration-300 hover:-translate-y-1.5 hover:shadow-blue-xl hover:border-blue-primary group">
+          <div class="h-[180px] overflow-hidden relative">
+            <img src="dkv.jpeg" alt="DKV" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+            <div class="absolute bottom-3 left-3 bg-blue-primary text-white px-3 py-1.5 rounded-lg text-[13px] font-bold flex items-center gap-1.5">
+              <span class="text-lg">🎨</span> DKV
+            </div>
+          </div>
+          <div class="p-[22px]">
+            <h3 class="text-base font-bold text-blue-primary mb-1">DKV</h3>
+            <div class="text-[13px] text-text-light font-medium mb-2.5">Desain Komunikasi Visual</div>
+            <p class="text-[13px] text-text-mid leading-relaxed">Belajar desain grafis, branding, dan multimedia kreatif.</p>
+          </div>
+        </div>
+
+        <!-- BDP -->
+        <div class="rounded-[18px] overflow-hidden border border-[1.5px] border-border-blue bg-white transition-all duration-300 hover:-translate-y-1.5 hover:shadow-blue-xl hover:border-blue-primary group">
+          <div class="h-[180px] overflow-hidden relative">
+            <img src="bsp.jpeg" alt="BDP" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+            <div class="absolute bottom-3 left-3 bg-blue-primary text-white px-3 py-1.5 rounded-lg text-[13px] font-bold flex items-center gap-1.5">
+              <span class="text-lg">🛒</span> Retail
+            </div>
+          </div>
+          <div class="p-[22px]">
+            <h3 class="text-base font-bold text-blue-primary mb-1">BDP</h3>
+            <div class="text-[13px] text-text-light font-medium mb-2.5">Bisnis Daring dan Pemasaran</div>
+            <p class="text-[13px] text-text-mid leading-relaxed">Belajar bisnis retail, pelayanan, dan pemasaran modern.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CARA BERGABUNG ===== -->
+  <section class="py-20 bg-bg-section">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="text-center mb-[50px]">
+        <h2 class="text-[36px] font-extrabold text-text-dark mb-2 max-[600px]:text-[28px]">
+          CARA BERGABUNG DI <span class="text-blue-primary">BBC</span>
+        </h2>
+        <div class="w-[50px] h-1 bg-blue-primary rounded-sm mx-auto mt-3"></div>
+      </div>
+      <div class="join-flow grid grid-cols-4 gap-5 relative max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
+        <!-- Step 1 -->
+        <div class="text-center relative z-[1]">
+          <div class="relative w-[72px] h-[72px] bg-blue-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-[28px] border-4 border-white shadow-blue-sm">
+            📋
+            <span class="absolute -top-1 right-[-44px] translate-x-full w-[22px] h-[22px] bg-blue-dark text-white rounded-full text-[11px] font-bold flex items-center justify-center" style="right:calc(50% - 44px);top:-4px">1</span>
+          </div>
+          <h3 class="text-sm font-bold text-text-dark mb-2">Isi Formulir</h3>
+          <p class="text-xs text-text-light leading-relaxed">Lengkapi data diri pada formulir pendaftaran online.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="text-center relative z-[1]">
+          <div class="relative w-[72px] h-[72px] bg-blue-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-[28px] border-4 border-white shadow-blue-sm">
+            🎓
+            <span class="absolute w-[22px] h-[22px] bg-blue-dark text-white rounded-full text-[11px] font-bold flex items-center justify-center" style="right:calc(50% - 44px);top:-4px">2</span>
+          </div>
+          <h3 class="text-sm font-bold text-text-dark mb-2">Pilih Jurusan</h3>
+          <p class="text-xs text-text-light leading-relaxed">Pilih program keahlian yang sesuai dengan minat kamu.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="text-center relative z-[1]">
+          <div class="relative w-[72px] h-[72px] bg-blue-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-[28px] border-4 border-white shadow-blue-sm">
+            ✅
+            <span class="absolute w-[22px] h-[22px] bg-blue-dark text-white rounded-full text-[11px] font-bold flex items-center justify-center" style="right:calc(50% - 44px);top:-4px">3</span>
+          </div>
+          <h3 class="text-sm font-bold text-text-dark mb-2">Verifikasi Data</h3>
+          <p class="text-xs text-text-light leading-relaxed">Tim kami akan memverifikasi data yang telah dikirim.</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="text-center relative z-[1]">
+          <div class="relative w-[72px] h-[72px] bg-blue-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-[28px] border-4 border-white shadow-blue-sm">
+            👤
+            <span class="absolute w-[22px] h-[22px] bg-blue-dark text-white rounded-full text-[11px] font-bold flex items-center justify-center" style="right:calc(50% - 44px);top:-4px">4</span>
+          </div>
+          <h3 class="text-sm font-bold text-text-dark mb-2">Resmi Menjadi Siswa BBC</h3>
+          <p class="text-xs text-text-light leading-relaxed">Selamat! Kamu resmi menjadi bagian dari keluarga besar BBC.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="py-20 bg-white">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="text-center mb-[50px]">
+        <h2 class="text-[36px] font-extrabold text-text-dark mb-2 max-[600px]:text-[28px]">DIPERCAYA BANYAK SISWA</h2>
+        <div class="w-[50px] h-1 bg-blue-primary rounded-sm mx-auto mt-3"></div>
+      </div>
+      <div class="grid grid-cols-4 gap-5 max-[1024px]:grid-cols-2">
+        <div class="bg-bg-light border border-[1.5px] border-border-blue rounded-[18px] p-8 text-center transition-all duration-300 hover:border-blue-primary hover:bg-white hover:shadow-blue-2xl">
+          <div class="text-[32px] mb-3">🏆</div>
+          <h2 class="text-[40px] font-black text-blue-primary leading-none mb-1.5">A</h2>
+          <p class="text-[13px] text-text-light font-medium">Terakreditasi BAN-S/M</p>
+        </div>
+        <div class="bg-bg-light border border-[1.5px] border-border-blue rounded-[18px] p-8 text-center transition-all duration-300 hover:border-blue-primary hover:bg-white hover:shadow-blue-2xl">
+          <div class="text-[32px] mb-3">🤝</div>
+          <h2 class="text-[40px] font-black text-blue-primary leading-none mb-1.5">20+</h2>
+          <p class="text-[13px] text-text-light font-medium">Kerja Sama Industri</p>
+        </div>
+        <div class="bg-bg-light border border-[1.5px] border-border-blue rounded-[18px] p-8 text-center transition-all duration-300 hover:border-blue-primary hover:bg-white hover:shadow-blue-2xl">
+          <div class="text-[32px] mb-3">🥇</div>
+          <h2 class="text-[40px] font-black text-blue-primary leading-none mb-1.5">50+</h2>
+          <p class="text-[13px] text-text-light font-medium">Prestasi Akademik &amp; Non Akademik</p>
+        </div>
+        <div class="bg-bg-light border border-[1.5px] border-border-blue rounded-[18px] p-8 text-center transition-all duration-300 hover:border-blue-primary hover:bg-white hover:shadow-blue-2xl">
+          <div class="text-[32px] mb-3">👥</div>
+          <h2 class="text-[40px] font-black text-blue-primary leading-none mb-1.5">1000+</h2>
+          <p class="text-[13px] text-text-light font-medium">Siswa Aktif &amp; Alumni Berprestasi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="py-20 bg-bg-section">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="text-center mb-[50px]">
+        <h2 class="text-[36px] font-extrabold text-text-dark mb-2 max-[600px]:text-[28px]">
+          KATA MEREKA TENTANG <span class="text-blue-primary">BBC</span>
+        </h2>
+        <div class="w-[50px] h-1 bg-blue-primary rounded-sm mx-auto mt-3"></div>
+      </div>
+      <div class="bg-white rounded-[20px] p-12 max-w-[800px] mx-auto border border-[1.5px] border-border-blue shadow-blue-2xl text-center max-[600px]:p-7">
+        <img src="teteh.png" alt="Testimoni" class="w-16 h-16 rounded-full border-[3px] border-blue-primary mx-auto mb-4 object-cover">
+        <p class="text-[15px] text-text-mid leading-[1.9] italic mb-5">
+          <span class="text-blue-primary text-2xl not-italic">"</span>Selama belajar di RPL BBC, saya menyadari bahwa dunia teknologi memiliki peluang yang sangat luas, tidak hanya tentang coding tetapi juga berbagai bidang digital lainnya. Pembelajaran praktik dan pengalaman yang diberikan membuat saya lebih siap menghadapi dunia kerja.<span class="text-blue-primary text-2xl not-italic">"</span>
+        </p>
+        <div class="font-bold text-text-dark text-sm">Lisyeu Andriani</div>
+        <div class="text-[13px] text-text-light">Alumni 2022 – Bekerja sebagai Digital Marketing</div>
+        <div class="flex justify-center gap-2 mt-6">
+          <div class="w-5 h-2 rounded bg-blue-primary"></div>
+          <div class="w-2 h-2 rounded-full bg-border-blue"></div>
+          <div class="w-2 h-2 rounded-full bg-border-blue"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="py-20 bg-white">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="text-center mb-[50px]">
+        <h2 class="text-[36px] font-extrabold text-text-dark mb-2 max-[600px]:text-[28px]">PERTANYAAN UMUM</h2>
+        <div class="w-[50px] h-1 bg-blue-primary rounded-sm mx-auto mt-3"></div>
+      </div>
+      <div class="max-w-[800px] mx-auto">
+
+        <div class="faq-item open border border-[1.5px] border-border-blue rounded-[14px] mb-3 overflow-hidden transition-all duration-300 hover:border-blue-primary">
+          <div class="faq-q flex justify-between items-center px-6 py-5 cursor-pointer text-sm font-semibold text-text-dark" onclick="toggleFaq(this)">
+            Apakah BBC memiliki banyak pilihan jurusan?
+            <div class="faq-icon w-7 h-7 bg-bg-light rounded-full flex items-center justify-center shrink-0 text-lg text-blue-primary font-normal transition-transform duration-300">+</div>
+          </div>
+          <div class="faq-a px-6 pb-5 text-sm text-text-light leading-[1.7]">
+            Ya, BBC menyediakan 3 program keahlian: RPL, DKV, dan BDP – masing-masing dirancang sesuai kebutuhan industri modern.
+          </div>
+        </div>
+
+        <div class="faq-item border border-[1.5px] border-border-blue rounded-[14px] mb-3 overflow-hidden transition-all duration-300 hover:border-blue-primary">
+          <div class="faq-q flex justify-between items-center px-6 py-5 cursor-pointer text-sm font-semibold text-text-dark" onclick="toggleFaq(this)">
+            Bagaimana proses pendaftarannya?
+            <div class="faq-icon w-7 h-7 bg-bg-light rounded-full flex items-center justify-center shrink-0 text-lg text-blue-primary font-normal transition-transform duration-300">+</div>
+          </div>
+          <div class="faq-a px-6 pb-5 text-sm text-text-light leading-[1.7]">
+            Pendaftaran dapat dilakukan secara online melalui website sekolah dengan mengisi formulir dan melengkapi data diri.
+          </div>
+        </div>
+
+        <div class="faq-item border border-[1.5px] border-border-blue rounded-[14px] mb-3 overflow-hidden transition-all duration-300 hover:border-blue-primary">
+          <div class="faq-q flex justify-between items-center px-6 py-5 cursor-pointer text-sm font-semibold text-text-dark" onclick="toggleFaq(this)">
+            Apakah siswa mendapatkan pengalaman praktik?
+            <div class="faq-icon w-7 h-7 bg-bg-light rounded-full flex items-center justify-center shrink-0 text-lg text-blue-primary font-normal transition-transform duration-300">+</div>
+          </div>
+          <div class="faq-a px-6 pb-5 text-sm text-text-light leading-[1.7]">
+            Ya, setiap jurusan memiliki pembelajaran berbasis praktik industri langsung yang mempersiapkan siswa untuk dunia kerja nyata.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-bg relative py-[70px] overflow-hidden">
+    <!-- deco circles -->
+    <div class="absolute -right-20 -bottom-20 w-[300px] h-[300px] bg-white/[0.08] rounded-full pointer-events-none"></div>
+    <div class="absolute left-[40%] -top-16 w-[200px] h-[200px] bg-white/[0.06] rounded-full pointer-events-none"></div>
+
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="flex items-center justify-between gap-10 relative z-[2] max-[900px]:flex-col max-[900px]:text-center">
+        <div>
+          <h2 class="text-[32px] font-black text-white mb-2.5 max-[600px]:text-2xl">SIAP MENJADI GENERASI INDUSTRI?</h2>
+          <p class="text-white/85 text-[15px]">Mulai perjalanan masa depanmu bersama SMK Budi Bakti Ciwidey sekarang.</p>
+          <a href="#" class="btn-arrow inline-flex items-center gap-2 mt-5 px-[22px] py-[11px] rounded-xl font-bold text-sm text-blue-primary bg-white transition-all hover:bg-bg-light hover:-translate-y-0.5">
+            Mulai Pendaftaran
+          </a>
+        </div>
+        <img src="BBC.jpeg" alt="BBC School" class="max-w-[220px] rounded-2xl shrink-0 max-[900px]:hidden">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-text-dark text-white pt-[50px] pb-[30px]">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-10 pb-10 border-b border-white/10 mb-7 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2.5 no-underline">
+            <div class="rounded-xl overflow-hidden shrink-0" style="width:52px;height:52px;">
+              <img src="HD.png" alt="Logo BBC" class="w-full h-full object-cover">
+            </div>
+            <div class="flex flex-col leading-tight">
+              <strong class="text-[13px] font-bold text-white">SMK BUDI BAKTI CIWIDEY</strong>
+              <span class="text-[11px] text-white/60 font-normal">Sekolah Siap Kerja &amp; Berkarya</span>
+            </div>
+          </div>
+          <p class="text-[13px] text-white/60 mt-3.5 leading-[1.7]">© 2026 SMK Budi Bakti Ciwidey.<br>All Rights Reserved.</p>
+          <div class="flex gap-2.5 mt-[18px]">
+            <a href="https://www.instagram.com/info.smkbudibakticiwidey/?hl=id" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center text-[15px] no-underline transition-all hover:bg-blue-primary">📷</a>
+            <a href="https://www.youtube.com/@smkbbc" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center text-[15px] no-underline transition-all hover:bg-blue-primary">▶️</a>
+            <a href="https://www.tiktok.com/@smkbbc" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center text-[15px] no-underline transition-all hover:bg-blue-primary">🎵</a>
+          </div>
+        </div>
+
+        <!-- Alamat -->
+        <div>
+          <h4 class="text-sm font-bold text-blue-light mb-3.5">Alamat</h4>
+          <p class="text-[13px] text-white/65 leading-[1.8]">Jl. Ciwidey – Rancabali No.123<br>Ciwidey, Bandung 40973</p>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <h4 class="text-sm font-bold text-blue-light mb-3.5">Email</h4>
+          <p class="text-[13px] text-white/65 leading-[1.8]">info@smkbudibakti.sch.id</p>
+        </div>
+
+        <!-- Kontak -->
+        <div>
+          <h4 class="text-sm font-bold text-blue-light mb-3.5">Hubungi Kami</h4>
+          <p class="text-[13px] text-white/65 leading-[1.8]">📞 (022) 1234 5678</p>
+          <p class="text-[13px] text-white/65 leading-[1.8]">📱 0812 3456 7890</p>
+        </div>
+
+      </div>
+      <div class="flex justify-between items-center text-xs text-white/40 max-[600px]:flex-col max-[600px]:gap-2 max-[600px]:text-center">
+        <span>© 2026 SMK Budi Bakti Ciwidey. All Rights Reserved.</span>
+        <span>Made with ❤️ for BBC</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const m = document.getElementById('mobileMenu');
+      m.classList.toggle('hidden');
+    }
+    function toggleFaq(el) {
+      el.parentElement.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
